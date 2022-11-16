@@ -59,7 +59,9 @@ button, input{
 button:active{
   background-color: blueviolet;
 }
-
+button:hover{
+  background-color: thistle;
+}
 input:hover{
-  background-color: blueviolet;
+  background-color: thistle;
 }
