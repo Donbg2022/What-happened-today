@@ -1,0 +1,33 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* header */
+header{
+  text-align: center;
+  background-color: blueviolet;
+  min-height: 5em;
+  color: white;
+}
+header p{
+  font-size: xx-large;
+  padding-top: .6em
+}
+
+
+
+
+/* history today */
+#history-today{
+  text-align: center;
+  font-size: xx-large;
+  padding-top: 1.5em;
+}
+#underline{
+  border-bottom: 1px solid purple;
+  margin: 1em auto 3em auto;
+  width: 60%;
+}
+
