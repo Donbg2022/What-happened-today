@@ -10,6 +10,7 @@ const ul = document.querySelector('#ul')
 
 
 const buttons = document.querySelector('.buttons')
+const load = document.querySelector('#load')
 
 //event listener to trigger today function
 buttons.addEventListener('click', today)
@@ -27,8 +28,10 @@ const dayNumber = date.getDay()
 //displays said sting and day 
 theDate.innerText = `${month} ${dayNumber}`
   
+load.style.display = 'block'
 //calling api to display what has happened today
 const todayApi = await axios.get(`https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/all/${monthNumber}/${dayNumber}`)
+load.style.display = 'none'
 
 let notables = todayApi.data.selected
     for (let i = 0; i < 20; i++) {
@@ -40,7 +43,6 @@ let notables = todayApi.data.selected
 
 
 const title = document.querySelector('#history-today')
-const load = document.querySelector('#load')
 //async function today
 async function today(e){
 
