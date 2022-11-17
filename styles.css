@@ -69,3 +69,6 @@ button:hover{
 input:hover{
   background-color: thistle;
 }
+.buttons{
+  display: inline;
+}

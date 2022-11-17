@@ -9,10 +9,18 @@ const ul = document.querySelector('#ul')
 
 
 
-let buttons = document.querySelector('.buttons')
+const buttons = document.querySelector('.buttons')
 
 //event listener to trigger today function
 buttons.addEventListener('click', today)
+
+
+
+
+
+
+
+
 
 //async function today
 async function today(e){
@@ -23,7 +31,7 @@ async function today(e){
   //slices pieces of date input for day and month variables
   day = input.value.slice(8,10)
   month = input.value.slice(5,7)
-  
+
   //api call to get data
   const dateApi = await axios.get(`https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/all/${month}/${day}`)
   console.log(dateApi)
