@@ -48,6 +48,7 @@ ul{
 ul li{
   list-style: none;
   padding: .5em;
+  color: black;
 }
 @media (min-width: 720px) {
   ul{
@@ -63,6 +64,7 @@ button, input{
   background-color: rgb(184, 154, 226);
   padding: .5em;
   border: 1px solid rgb(91, 54, 143);
+  color: black;
 }
 
 button:active{
