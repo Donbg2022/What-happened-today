@@ -44,7 +44,11 @@ ul li{
   list-style: none;
   padding: .5em;
 }
-
+@media (min-width: 720px) {
+  ul{
+    column-count: 2;
+  }
+}
 /* your day */
 
 #yourday{
