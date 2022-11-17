@@ -48,7 +48,7 @@ ul{
 ul li{
   list-style: none;
   padding: .5em;
-  color: black;
+  
 }
 @media (min-width: 720px) {
   ul{
@@ -78,4 +78,5 @@ input:hover{
 }
 .buttons{
   display: inline;
+  color: black;
 }
