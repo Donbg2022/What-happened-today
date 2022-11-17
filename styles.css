@@ -77,7 +77,6 @@ input:hover{
   background-color: thistle;
 }
 .buttons{
-  display: inline;
   color: black;
-  padding-bottom: 5em;
+  margin-bottom: 5em;
 }
