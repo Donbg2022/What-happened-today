@@ -29,7 +29,7 @@ theDate.innerText = `${month} ${dayNumber}`
   
 //calling api to display what has happened today
 const todayApi = await axios.get(`https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/all/${monthNumber}/${dayNumber}`)
-console.log(todayApi)
+
 let notables = todayApi.data.selected
     for (let i = 0; i < 20; i++) {
     let valList = ul.appendChild(document.createElement('li'))
@@ -39,11 +39,12 @@ let notables = todayApi.data.selected
 
 
 
-
-
-
+const title = document.querySelector('#history-today')
+const load = document.querySelector('#load')
 //async function today
 async function today(e){
+
+title.innerText = `${e.target.innerText} in History`
 
 //gets the number of the date so it can be used in axios request
   day = new Date(input.value).getDay()
@@ -59,12 +60,11 @@ async function today(e){
   //prevents page from reloading due to 'form' submission
   e.preventDefault()
 
-  
 
+  load.style.display = 'block'
   //api call to get data
   const dateApi = await axios.get(`https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/all/${month.getMonth()}/${day}`)
-  console.log(dateApi)
-
+  load.style.display = 'none'
   //series off if statements to check which button was actually pressed and adds data to user screen
   if (e.target.innerText === 'BIRTHS'){
     let notables = dateApi.data.births

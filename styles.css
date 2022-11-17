@@ -30,7 +30,12 @@ header p{
   margin: 1em auto 3em auto;
   width: 60%;
 }
-
+#load{
+  text-align: center;
+  padding-bottom: 2em;
+  font-size: large;
+  display: none;
+}
 #thedate{
   text-align: center;
   font-size: x-large;
