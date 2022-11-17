@@ -79,4 +79,5 @@ input:hover{
 .buttons{
   display: inline;
   color: black;
+  padding-bottom: 5em;
 }
