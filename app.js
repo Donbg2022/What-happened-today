@@ -14,8 +14,28 @@ const buttons = document.querySelector('.buttons')
 //event listener to trigger today function
 buttons.addEventListener('click', today)
 
+//event listener that envokes when page is loaded
+const theDate = document.querySelector('#thedate')
+window.addEventListener('load', async() =>{
 
-
+  //get todays date 
+const date = new Date();
+//takes the month and makes it a string   
+const month = date.toLocaleString('default', { month: 'long' });
+const monthNumber = date.getMonth()
+const dayNumber = date.getDay()
+//displays said sting and day 
+theDate.innerText = `${month} ${dayNumber}`
+  
+//calling api to display what has happened today
+const todayApi = await axios.get(`https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/all/${monthNumber}/${dayNumber}`)
+console.log(todayApi)
+let notables = todayApi.data.selected
+    for (let i = 0; i < 20; i++) {
+    let valList = ul.appendChild(document.createElement('li'))
+    valList.innerText = notables[i].text
+    }
+  })
 
 
 
@@ -25,21 +45,27 @@ buttons.addEventListener('click', today)
 //async function today
 async function today(e){
 
+//gets the number of the date so it can be used in axios request
+  day = new Date(input.value).getDay()
+  month = new Date(input.value)
+
+  //stringifys the month and displays it on user screen
+  let monthString = month.toLocaleString('default', { month: 'long' })
+  theDate.innerText = `${monthString} ${day}`
+
+  //resets page if a new date request is submitted
+  ul.innerText = ''
+
   //prevents page from reloading due to 'form' submission
   e.preventDefault()
 
-  //slices pieces of date input for day and month variables
-  day = input.value.slice(8,10)
-  month = input.value.slice(5,7)
+  
 
   //api call to get data
-  const dateApi = await axios.get(`https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/all/${month}/${day}`)
+  const dateApi = await axios.get(`https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/all/${month.getMonth()}/${day}`)
   console.log(dateApi)
 
-  //global variable to use in if statements
-  let notables = ''
-
-  //series off if statements to check which button was acyually pressed and adds data to user screen
+  //series off if statements to check which button was actually pressed and adds data to user screen
   if (e.target.innerText === 'BIRTHS'){
     let notables = dateApi.data.births
     for (let i = 0; i < 20; i++) {
@@ -64,7 +90,6 @@ async function today(e){
     let valList = ul.appendChild(document.createElement('li'))
     valList.innerText = notables[i].text
   }
-  }
-  
+}
 }
 
